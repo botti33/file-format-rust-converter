@@ -1,0 +1,13 @@
+# Copy this file to `.cargo/config.toml` and adjust the paths for your machine.
+# It is only needed for hosts using the x86_64-pc-windows-gnu Rust target where
+# the normal MinGW/MSVC setup is unavailable or its startup objects misbehave.
+
+[target.x86_64-pc-windows-gnu]
+rustflags = [
+  "-C",
+  "dlltool=C:/path/to/mingw/bin/llvm-dlltool.exe",
+  "-C",
+  "link-self-contained=yes",
+  "-C",
+  "linker=C:/path/to/rustup/toolchains/stable-x86_64-pc-windows-gnu/lib/rustlib/x86_64-pc-windows-gnu/bin/rust-lld.exe",
+]
